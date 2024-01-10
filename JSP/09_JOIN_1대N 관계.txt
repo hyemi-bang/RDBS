@@ -1,0 +1,57 @@
+    1> 사원과 부서처럼 1:N관계로 설정할 수 있는 실제 사례를 하나 생각해보기
+    
+카페 - 손님 
+블로거 - 방문자
+프로그래머 - 프로젝트
+성적관리프로그램 - 학생 (N:N ? )
+생산품 - 재료들
+사원정보프로그램 (사원id,이름,부서정보(..),)
+밀리의서재 - 독자들
+여행사 프로그램 - 회원들
+
+    2> 1:N 관계로 설정한 각 개체를 테이블 형태로 설계해보세요
+
+
+** 여행사 프로그램 - 회원들
+테이블 이름: travel_agencies (여행사 테이블)
+
+컬럼명:
+agency_id (여행사 ID, 정수형)
+agency_name (여행사 이름, 문자열)
+location (여행사 위치, 문자열)
+
+기본키 컬럼: agency_id
+외래키 컬럼 : members ->agency_id
+
+테이블이름 : members (회원정보테이블)
+컬럼명:
+member_id (회원 ID, 정수형)
+member_name (회원 이름, 문자열)
+agency_id (여행사 ID, 정수형)
+
+기본키 컬럼: member_id
+외래키 컬럼: travel_agencies 테이블의 agency_id ??
+
+
+** 밀리의 서재 - 독자들
+테이블 이름: libraries (서재 정보 테이블)
+
+컬럼명:
+library_id (서재 ID, 정수형)
+library_name (서재 이름, 문자열)
+location (책들의 위치, 문자열)
+
+기본키 컬럼: library_id // 외래키?? reader_id???
+
+테이블 이름: readers (독자 정보 테이블)
+
+컬럼명:
+reader_id (독자 ID, 정수형)
+reader_name (독자 이름, 문자열)
+library_id (서재 ID, 정수형) 
+
+기본키 컬럼: reader_id
+외래키 컬럼 : librarty_id
+
+
+
